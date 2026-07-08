@@ -1,6 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { cells, finalCellId } from "./gameData.js";
 
+// Casual privacy only: this client-side passcode is visible in the bundled code
+// and should not be treated as real security or authentication.
+const MAGIC_WORD = "birthday";
+const ACCESS_STORAGE_KEY = "anvikaverseAccessGranted";
+
 const clampStep = (step) => Math.max(1, Math.min(finalCellId, step));
 
 function StepImage({ cell }) {
@@ -42,6 +47,13 @@ function Confetti() {
 }
 
 function App() {
+  const [hasAccess, setHasAccess] = useState(
+    () => window.sessionStorage.getItem(ACCESS_STORAGE_KEY) === "true"
+  );
+  const [magicWord, setMagicWord] = useState("");
+  const [gateMessage, setGateMessage] = useState(
+    "A little sparkle is waiting for the right word."
+  );
   const [step, setStep] = useState(1);
   const [isWon, setIsWon] = useState(false);
   const [result, setResult] = useState("Roll the dice and let the birthday magic decide.");
@@ -132,11 +144,51 @@ function App() {
         ? "Choose an Answer"
         : "Enter Portal";
 
+  const unlockVerse = (event) => {
+    event.preventDefault();
+
+    if (magicWord.trim().toLowerCase() === MAGIC_WORD.toLowerCase()) {
+      window.sessionStorage.setItem(ACCESS_STORAGE_KEY, "true");
+      setHasAccess(true);
+      return;
+    }
+
+    setGateMessage("That spell fizzled into confetti. Try the magic word again.");
+    setMagicWord("");
+  };
+
   return (
     <main className={`appShell ${isWon ? "isWon" : ""}`}>
       {isWon && <Confetti />}
 
-      <section className="gamePanel" aria-live="polite">
+      {!hasAccess ? (
+        <section className="gatePanel" aria-live="polite">
+          <div className="gateCard">
+            <div className="gateBadge" aria-hidden="true">
+              AV
+            </div>
+            <p className="eyebrow">Secret birthday doorway</p>
+            <h1>AnvikaVerse</h1>
+            <h2>Enter the magic word to enter AnvikaVerse</h2>
+            <p>{gateMessage}</p>
+            <form className="gateForm" onSubmit={unlockVerse}>
+              <label htmlFor="magic-word">Magic word</label>
+              <input
+                id="magic-word"
+                type="password"
+                value={magicWord}
+                onChange={(event) => setMagicWord(event.target.value)}
+                autoComplete="off"
+                autoFocus
+              />
+              <button className="primaryButton" type="submit">
+                Open the Birthday Portal
+              </button>
+            </form>
+          </div>
+        </section>
+      ) : (
+        <section className="gamePanel" aria-live="polite">
         <header className="topBar">
           <div>
             <p className="eyebrow">Birthday journey</p>
@@ -231,6 +283,7 @@ function App() {
           </article>
         )}
       </section>
+      )}
     </main>
   );
 }
