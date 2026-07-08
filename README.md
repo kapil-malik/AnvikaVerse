@@ -7,23 +7,27 @@ A mobile-first React + Vite static birthday game. The player travels through a 1
 Install dependencies:
 
 ```bash
-pnpm install
+npm install
 ```
 
 Start the dev server:
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 Open the local URL printed by Vite, usually `http://127.0.0.1:5173/`.
 
-If you prefer npm, `npm install` and `npm run dev` work too.
+For clean CI-style installs after `package-lock.json` exists:
+
+```bash
+npm ci
+```
 
 ## Build
 
 ```bash
-pnpm run build
+npm run build
 ```
 
 The static site is generated in `dist/`.
@@ -34,8 +38,16 @@ Deploy the contents of `dist/` to any static host, such as Netlify, Vercel, GitH
 
 For most hosts:
 
-- Build command: `pnpm run build`
+- Build command: `npm run build`
 - Publish directory: `dist`
+
+## Deploying to AWS Amplify
+
+1. Connect the GitHub repo in Amplify.
+2. Select the `main` branch.
+3. Use the `amplify.yml` build settings.
+4. Add the custom domain in Amplify domain management.
+5. Point DNS records if the domain is outside Route 53.
 
 ## Editing The Journey
 
