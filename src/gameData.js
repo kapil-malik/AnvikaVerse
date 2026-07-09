@@ -52,12 +52,17 @@ const captionSeeds = [
   "Bernadette says something tiny and powerful enough to move the stars.",
   "Phil turns this step into a cheerful family adventure, obviously.",
   "Cam and Mitch approve the drama level of this magical crossing.",
-  "Michael creates chaos, Jim looks at the camera, and the journey continues.",
+  "Michael creates chaos in the office and somehow calls it leadership.",
+  "Jim looks at the camera, launches a tiny prank portal, and the journey continues.",
   "Wanda bends reality just enough to add one more birthday surprise.",
   "Percy hears distant waves and prepares for a very casual heroic moment.",
   "A BTS-style glow fills the stage, and the next step gets its own fan chant.",
   "The Rookie squad marks this area safe for birthday exploration."
 ];
+
+if (titleSeeds.length !== captionSeeds.length) {
+  throw new Error("titleSeeds and captionSeeds must stay paired 1-to-1.");
+}
 
 const visualSeeds = [
   "birthday",
@@ -326,12 +331,13 @@ export const cells = Array.from({ length: 100 }, (_, index) => {
   const special = specialCells[id] ?? {};
   const isSpecial = Boolean(specialCells[id]);
   const paddedId = String(id).padStart(3, "0");
+  const seedIndex = index % titleSeeds.length;
 
   return {
     id,
     type: "normal",
-    title: `${titleSeeds[index % titleSeeds.length]} ${id}`,
-    caption: captionSeeds[index % captionSeeds.length],
+    title: `${titleSeeds[seedIndex]} ${id}`,
+    caption: captionSeeds[seedIndex],
     image: `/images/step-${paddedId}.png`,
     visualTheme: visualSeeds[index % visualSeeds.length],
     usesGeneratedArt: !isSpecial,
