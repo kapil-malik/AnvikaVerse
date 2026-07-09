@@ -7,7 +7,7 @@ const MAGIC_WORD = "birthday";
 const ACCESS_STORAGE_KEY = "anvikaverseAccessGranted";
 const BACKGROUND_MUSIC_SRC = "/audio/background.mp3";
 const VICTORY_MUSIC_SRC = "/audio/victory.mp3";
-const AVATAR_SRC = "/images/anvika-avatar.png";
+const AVATAR_SRC = "/images/anvika-avatar-transparent.png";
 
 const clampStep = (step) => Math.max(1, Math.min(finalCellId, step));
 
@@ -39,12 +39,14 @@ function StepImage({ cell }) {
   );
 }
 
-function AvatarOverlay() {
+function AvatarOverlay({ variant = "step" }) {
   const [avatarMissing, setAvatarMissing] = useState(false);
+  const avatarClass = variant === "final" ? " finalAvatarImage" : "";
+  const fallbackClass = variant === "final" ? " finalAvatarFallback" : "";
 
   if (avatarMissing) {
     return (
-      <div className="stepAvatarFallback" aria-label="Anvika avatar">
+      <div className={`stepAvatarFallback${fallbackClass}`} aria-label="Anvika avatar">
         AV
       </div>
     );
@@ -52,7 +54,7 @@ function AvatarOverlay() {
 
   return (
     <img
-      className="stepAvatarImage"
+      className={`stepAvatarImage${avatarClass}`}
       src={AVATAR_SRC}
       alt="Anvika avatar"
       onError={() => setAvatarMissing(true)}
@@ -489,6 +491,9 @@ function App() {
 
         {isWon ? (
           <div className="winScreen">
+            <div className="winAvatarStage">
+              <AvatarOverlay variant="final" />
+            </div>
             <div className="winBadge">100</div>
             <h2>You reached the Birthday Star!</h2>
             <p>
