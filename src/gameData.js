@@ -42,143 +42,249 @@ const visualSeeds = [
 // Use specialCells to personalize important steps for Anvika with custom
 // boosts, detours, quizzes, titles, captions, and movement.
 const specialCells = {
-  5: {
+  7: {
     type: "boost",
-    title: "Sprinkle Rocket",
-    caption: "A frosting rocket appears and offers a glittery shortcut.",
-    move: 4
+    title: "Ginger Ale and Romance Cake",
+    caption: "A fizzy movie-night portal opens with ginger ale, Britannia Romance fruit cake, and the exact right sitcom mood.",
+    move: 5,
+    image: "/images/step-007.png"
   },
-  9: {
+  10: {
     type: "quiz",
-    title: "The Candle Riddle",
-    caption: "A wise candle asks a warm-up birthday question.",
-    question: "What do you make before blowing out birthday candles?",
-    options: ["A wish", "A sandwich", "A snowball"],
-    answerIndex: 0,
-    correctMove: 5,
+    title: "Harry Potter Fun Trivia",
+    caption: "A dramatic Lockhart-shaped sparkle enters the room, hair perfectly arranged and facts only partly attached.",
+    question: "Which Harry Potter character still makes Anvika and Daddy laugh on the bed?",
+    options: ["Hagrid", "Gilderoy Lockhart", "Argus Filch", "Professor Sprout"],
+    answerIndex: 1,
+    correctMove: 6,
     wrongMove: 1,
-    correctText: "The candle glows brighter. Your wish knows the way.",
-    wrongText: "The candle giggles kindly and nudges you ahead."
+    correctText: "Correct. Ten points for ridiculous confidence and excellent memory.",
+    wrongText: "Close enough for a giggle. Lockhart is still posing nearby.",
+    image: "/images/step-010.png"
   },
   14: {
     type: "detour",
-    title: "Marshmallow Maze",
-    caption: "The soft walls bounce you onto a silly side path.",
-    move: -3
+    title: "The Lunch Box Hider",
+    caption: "A tiny school mystery appears, complete with one missing lunch box and a very over-serious investigation.",
+    move: -2,
+    image: "/images/step-014.png"
   },
   18: {
     type: "boost",
-    title: "Balloon Lift",
-    caption: "A bundle of rainbow balloons lifts the journey higher.",
-    move: 6
+    title: "Harry Potter Begins",
+    caption: "By age 8, all seven books had been conquered. The bookshelf opens like Platform 9 and three-quarters.",
+    move: 6,
+    image: "/images/step-018.png"
   },
-  23: {
+  21: {
     type: "quiz",
-    title: "Star Bakery Test",
-    caption: "The cosmic baker guards a tray of moon muffins.",
-    question: "Which treat usually wears candles on a birthday?",
-    options: ["Cake", "Soup", "Popcorn"],
-    answerIndex: 0,
-    correctMove: 6,
-    wrongMove: 2,
-    correctText: "The baker bows and sends you forward with extra sprinkles.",
-    wrongText: "The baker shares a muffin and points to the next step."
-  },
-  29: {
-    type: "detour",
-    title: "Giggle Gravity",
-    caption: "A burst of laughter flips the map upside down for a moment.",
-    move: -4
-  },
-  34: {
-    type: "boost",
-    title: "Gift-Wrap Glide",
-    caption: "A silky ribbon becomes a slide across the stars.",
-    move: 7
-  },
-  41: {
-    type: "quiz",
-    title: "Moon Music Quiz",
-    caption: "A moon harp will play if you know the birthday sound.",
-    question: "What do friends often sing at a birthday party?",
-    options: ["Happy Birthday", "Rain Forecast", "Alphabet Backwards"],
-    answerIndex: 0,
+    title: "Harry Potter Serious Trivia",
+    caption: "A trivia card appears with suspiciously many werewolves and one very funny private ranking system.",
+    question: "Who is the second most important werewolf in AnvikaVerse Harry Potter trivia?",
+    options: ["Fenrir Greyback", "Remus Lupin", "Sirius Black", "Bill Weasley"],
+    answerIndex: 2,
     correctMove: 5,
     wrongMove: 1,
-    correctText: "The harp sings along and the path sparkles open.",
-    wrongText: "A shy note floats away, but it still carries you onward."
+    correctText: "Correct. Sirius Black accepts this unusual promotion.",
+    wrongText: "A fair guess. The trivia deck is still howling softly.",
+    image: "/images/step-021.png"
   },
-  47: {
+  24: {
     type: "detour",
-    title: "Sleepy Stardust",
-    caption: "A cozy cloud asks for one slow twirl before moving on.",
-    move: -5
+    title: "The Sharp Bone Hugs",
+    caption: "Daddy offers a hug, but the cheekbones arrive first. The path pauses for soft padding and laughter.",
+    move: -3,
+    image: "/images/step-024.png"
   },
-  52: {
+  27: {
     type: "boost",
-    title: "Cupcake Carousel",
-    caption: "Frosted ponies circle faster and faster into a shortcut.",
-    move: 8
+    title: "Game-a-thon Win",
+    caption: "Nine games, two to three hours, and soft toy champions reporting for duty. The marathon board glows.",
+    move: 7,
+    image: "/images/step-027.png"
   },
-  59: {
+  30: {
     type: "quiz",
-    title: "The Ribbon Oracle",
-    caption: "The ribbon oracle shimmers with one playful question.",
-    question: "What do you open after someone gives you a wrapped surprise?",
-    options: ["A present", "A puddle", "A window only"],
-    answerIndex: 0,
-    correctMove: 6,
-    wrongMove: 2,
-    correctText: "The bow unties itself and reveals a glowing trail.",
-    wrongText: "The ribbon curls into a smile and lets you try again later."
-  },
-  66: {
-    type: "detour",
-    title: "Jellybean Junction",
-    caption: "The jellybean road wiggles and sends you around the scenic loop.",
-    move: -6
-  },
-  72: {
-    type: "boost",
-    title: "Aurora Crown",
-    caption: "A crown of northern lights lands softly and grants a leap.",
-    move: 9
-  },
-  79: {
-    type: "quiz",
-    title: "Wishkeeper's Gate",
-    caption: "The gate opens for brave hearts and careful listeners.",
-    question: "What is the final step of a perfect birthday wish?",
-    options: ["Believe in it", "Forget it instantly", "Hide the cake"],
-    answerIndex: 0,
-    correctMove: 7,
-    wrongMove: 1,
-    correctText: "The gate swings wide. Belief makes excellent wings.",
-    wrongText: "The gate stays gentle and gives you a smaller path."
-  },
-  87: {
-    type: "detour",
-    title: "Twinkle Tangle",
-    caption: "A knot of stars needs untangling before the finale.",
-    move: -7
-  },
-  92: {
-    type: "boost",
-    title: "Birthday Supernova",
-    caption: "A brilliant bloom of birthday magic hurls you toward the finish.",
-    move: 10
-  },
-  97: {
-    type: "quiz",
-    title: "Final Wish Trial",
-    caption: "One last question shines in the doorway of step one hundred.",
-    question: "What makes a birthday adventure truly magical?",
-    options: ["Love and laughter", "Counting socks", "A silent toaster"],
+    title: "Childhood Rhyme",
+    caption: "A tiny bedtime chorus pops up with one gloriously silly missing word.",
+    question: "Congratulations, and celebrations, and precipitation and...",
+    options: ["Body lotion", "Loose motion", "Birthday potion", "Cloudy commotion"],
     answerIndex: 0,
     correctMove: 4,
     wrongMove: 1,
-    correctText: "The whole AnvikaVerse answers with light.",
-    wrongText: "The door smiles. Even small steps count."
+    correctText: "Perfect. The rhyme still has excellent nonsense engineering.",
+    wrongText: "The rhyme wobbles, but it keeps singing kindly.",
+    image: "/images/step-030.png"
+  },
+  33: {
+    type: "detour",
+    title: "Sigma Sigma Boy",
+    caption: "A certain song starts playing in the distance. Anvika gives it one royal eye-roll and redirects the playlist.",
+    move: -2,
+    image: "/images/step-033.png"
+  },
+  36: {
+    type: "quiz",
+    title: "Grown Up Rhyme",
+    caption: "The bedtime ritual has evolved, as all great nonsense poetry must.",
+    question: "Harmon, Kardon, Pigeon...",
+    options: ["Nutri Choice", "Cheesecake", "Bourbon", "Cinnamon"],
+    answerIndex: 2,
+    correctMove: 5,
+    wrongMove: 1,
+    correctText: "Correct. The rhyme bows with grown-up silliness.",
+    wrongText: "Almost. The bedtime rhyme adjusts its pillow and tries again.",
+    image: "/images/step-036.png"
+  },
+  39: {
+    type: "detour",
+    title: "No Screen",
+    caption: "The screen-time timer appears wearing a tiny crown. It is strict, but not unkind.",
+    move: -3,
+    image: "/images/step-039.png"
+  },
+  42: {
+    type: "boost",
+    title: "Mommy-Daughter Cooking",
+    caption: "Dumplings, pad thai, sushi, and brave kitchen experiments form a delicious shortcut.",
+    move: 6,
+    image: "/images/step-042.png"
+  },
+  45: {
+    type: "quiz",
+    title: "Forbidden Webseries",
+    caption: "The streaming shelf whispers dramatically about age ratings and patience.",
+    question: "Which web series has Anvika not watched yet because it is still forbidden territory?",
+    options: ["Young Sheldon", "Modern Family", "The Office", "Friends"],
+    answerIndex: 3,
+    correctMove: 5,
+    wrongMove: 1,
+    correctText: "Correct. The age rating guard reluctantly salutes.",
+    wrongText: "A gentle miss. The forbidden couch is still reserved.",
+    image: "/images/step-045.png"
+  },
+  49: {
+    type: "detour",
+    title: "Finish Your Food",
+    caption: "A vegetable checkpoint appears. It is tiny, polite, and surprisingly determined.",
+    move: -2,
+    image: "/images/step-049.png"
+  },
+  52: {
+    type: "boost",
+    title: "Chatter With Friends",
+    caption: "Aaranya, Ridhisha, Antara, and the friend-circuit light up. The path speeds up just to keep pace.",
+    move: 4,
+    image: "/images/step-052.png"
+  },
+  55: {
+    type: "quiz",
+    title: "Classy Drive Playlist",
+    caption: "The car playlist puts on sunglasses and asks one very classy question.",
+    question: "Which song is not included in the classy drive playlist?",
+    options: ["Mission Impossible Theme", "James Bond Theme", "Don Theme", "Bella Ciao"],
+    answerIndex: 3,
+    correctMove: 6,
+    wrongMove: 1,
+    correctText: "Correct. Bella Ciao takes the silly exit ramp.",
+    wrongText: "The playlist stays classy and gives you another beat.",
+    image: "/images/step-055.png"
+  },
+  58: {
+    type: "detour",
+    title: "Naughty Gabdaflu",
+    caption: "Gabdaflu dashes across the building, completes mysterious nonsense, and returns looking completely innocent.",
+    move: -3,
+    image: "/images/step-058.png"
+  },
+  61: {
+    type: "boost",
+    title: "Jai Shri Hari",
+    caption: "A calm bright step for prayers, Gayatri sadhana, and Mahishasur Mardini Stotram. The path becomes steady and golden.",
+    move: 7,
+    image: "/images/step-061.png"
+  },
+  64: {
+    type: "quiz",
+    title: "First Maths Concept",
+    caption: "A triangle appears, slightly confused to have arrived before triangles were officially introduced.",
+    question: "What was the first maths concept Anvika learned as a private joke?",
+    options: ["Addition", "Subtraction", "Calculus", "Pythagoras Theorem"],
+    answerIndex: 3,
+    correctMove: 7,
+    wrongMove: 1,
+    correctText: "Correct. A-squared plus b-squared opens the shortcut.",
+    wrongText: "The triangle smiles. It knows it arrived early.",
+    image: "/images/step-064.png"
+  },
+  67: {
+    type: "detour",
+    title: "Gabdeddy's Leisure Bath",
+    caption: "A five-foot teddy enters the laundry saga. Hours pass, and somehow Gabdeddy looks even more adventurous.",
+    move: -4,
+    image: "/images/step-067.png"
+  },
+  70: {
+    type: "boost",
+    title: "AMC Class Rescheduled",
+    caption: "The online maths class magically shifts away. A tiny holiday parade marches across the calendar.",
+    move: 5,
+    image: "/images/step-070.png"
+  },
+  73: {
+    type: "quiz",
+    title: "Uday and Majnu",
+    caption: "Welcome movie trivia arrives wearing sunglasses and carrying maximum private-joke energy.",
+    question: "What is Anil Kapoor's name in the Welcome movie, according to your private joke?",
+    options: ["Majnu Bhai", "Sagar", "Majju Bhai", "Munna Hai Munna"],
+    answerIndex: 3,
+    correctMove: 6,
+    wrongMove: 1,
+    correctText: "Correct. Munna Hai Munna gets a full dramatic entrance.",
+    wrongText: "The joke laughs anyway and lets you keep moving.",
+    image: "/images/step-073.png"
+  },
+  76: {
+    type: "detour",
+    title: "Newton's Calculus",
+    caption: "A calculus book peeks out. Anvika gently closes it before Newton can start explaining limits.",
+    move: -4,
+    image: "/images/step-076.png"
+  },
+  79: {
+    type: "boost",
+    title: "Khopdi Tod De",
+    caption: "The Hera Pheri parody beat drops, and Anvika's dance energy turns the floor into a shortcut.",
+    move: 6,
+    image: "/images/step-079.png"
+  },
+  82: {
+    type: "detour",
+    title: "Wrong Hai Wrong Hai!",
+    caption: "The old abacus-class echo appears, much smaller now. It says its line, then politely moves aside.",
+    move: -2,
+    image: "/images/step-082.png"
+  },
+  87: {
+    type: "detour",
+    title: "Chess-mate",
+    caption: "Anvika is a strong player, but Daddy's chess luck is annoyingly smug today. The board requests a rematch.",
+    move: -3,
+    image: "/images/step-087.png"
+  },
+  90: {
+    type: "boost",
+    title: "Daddy-Daughter Cakes",
+    caption: "Lotus biscoff cheesecake and mango cheesecake appear like weekend trophies. The cake fork points forward.",
+    move: 4,
+    image: "/images/step-090.png"
+  },
+  96: {
+    type: "boost",
+    title: "Daddy-Daughter Games",
+    caption: "MS Word cards, sticker paper, flash cards, and entire homemade worlds return for the final stretch.",
+    move: 5,
+    image: "/images/step-096.png"
   }
 };
 
