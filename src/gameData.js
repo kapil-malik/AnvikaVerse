@@ -1,3 +1,5 @@
+// Placeholder/default content for normal cells. Personal memories can replace
+// these generated titles and captions by adding entries to specialCells below.
 const titleSeeds = [
   "Cupcake Comet",
   "Ribbon Moon",
@@ -24,6 +26,21 @@ const captionSeeds = [
   "Every step feels like opening one more gift."
 ];
 
+const visualSeeds = [
+  "birthday",
+  "school",
+  "garden",
+  "beach",
+  "chess",
+  "movies",
+  "books",
+  "space",
+  "music",
+  "math"
+];
+
+// Use specialCells to personalize important steps for Anvika with custom
+// boosts, detours, quizzes, titles, captions, and movement.
 const specialCells = {
   5: {
     type: "boost",
@@ -168,6 +185,7 @@ const specialCells = {
 export const cells = Array.from({ length: 100 }, (_, index) => {
   const id = index + 1;
   const special = specialCells[id] ?? {};
+  const isSpecial = Boolean(specialCells[id]);
   const paddedId = String(id).padStart(3, "0");
 
   return {
@@ -176,6 +194,9 @@ export const cells = Array.from({ length: 100 }, (_, index) => {
     title: `${titleSeeds[index % titleSeeds.length]} ${id}`,
     caption: captionSeeds[index % captionSeeds.length],
     image: `/images/step-${paddedId}.png`,
+    visualTheme: visualSeeds[index % visualSeeds.length],
+    usesGeneratedArt: !isSpecial,
+    // specialCells is spread last, so it overrides generated defaults above.
     ...special
   };
 });

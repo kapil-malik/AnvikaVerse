@@ -64,3 +64,24 @@ Each cell uses:
 - optional quiz fields: `question`, `options`, `answerIndex`, `correctMove`, `wrongMove`, `correctText`, `wrongText`
 
 Images are expected at paths like `public/images/step-001.png`. Missing images automatically fall back to an in-game magical placeholder.
+
+Normal cells use lightweight generated CSS art by default, so they do not need image files. Special cells can still use real images by placing files such as `public/images/step-021.png`; if a special-cell image is missing, the existing magical placeholder fallback appears instead.
+
+## Optional Avatar And Audio
+
+Place Anvika's avatar image at:
+
+```text
+public/images/anvika-avatar.png
+```
+
+Transparent PNG or WebP works best for the avatar. If the avatar image is missing or cannot load, the game falls back to the built-in `AV` avatar badge.
+
+Place optional music files at:
+
+```text
+public/audio/background.mp3
+public/audio/victory.mp3
+```
+
+Use small MP3 files so the site stays lightweight. Audio is optional: if either file is missing, blocked by the browser, or cannot play, the game continues silently without broken UI.
